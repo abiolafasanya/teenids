@@ -24,11 +24,11 @@ $num = $result->num_rows;
 if($num > 0){
 //post array
 
-$post_arr = array();
-$post_arr['data'] = array();
+    $post_arr = array();
+    $post_arr['data'] = array();
 
-while($row = $result->fetch_array()){
-    extract($row);
+    while($row = $result->fetch_array){
+        extract($row);
 
     $post_item = array(
         'id' => $id,
