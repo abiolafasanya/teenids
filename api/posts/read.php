@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origiin: *');
 header("Content-type: application/json");
 
 include('../../config/db.php');
-include('../../models.php');
+include('../../models/post.php');
 
 
 $database =  new Database();
