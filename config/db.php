@@ -24,7 +24,5 @@ class Database {
     }  
     
 }
-$cor = new Database();
-$cor->connect();
 
 ?>
