@@ -1,5 +1,4 @@
 <?php
-    // $conn = include_once('config/conn.php');
 
 
     class Post{

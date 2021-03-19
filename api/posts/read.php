@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origiin: *');
 
 header("Content-type: application/json");
 
-include('../../config/conn.php');
+include('../../config/db.php');
 include('../../models.php');
 
 
