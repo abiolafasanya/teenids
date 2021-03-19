@@ -2,18 +2,17 @@
 
 class Database {
 
-    private $host;
-    private $username;
-    private $password;
+    private $host = "localhost";
+    private $username= "root";
+    private $password = "";
+    private $db_name = "teenids";
     private $conn;
-    private $db_name;
 
     public function connect(){
         $this->conn = null;
 
         try {
-            $this->conn = new mysqli($this->host = "localhost", $this->username = "root",
-             $this->password = "", $this->db_name ="teenids");
+            $this->conn = new mysqli($this->host, $this->username,$this->password, $this->db_name);
         }
         catch(Exception $e) {
             $error = "connection error: ".$e->getMessage();
