@@ -38,8 +38,8 @@
                      ";
 
             // prepare statement
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
+            $stmt = $this->conn->query($sql);
+            // $stmt->execute();
 
             return $stmt;
         }

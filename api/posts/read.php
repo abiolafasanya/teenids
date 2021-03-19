@@ -18,7 +18,7 @@ $post = new Post($db);
 // blog post query
 $result = $post->read();
 
-$num = $result->num_rows();
+$num = $result->num_rows;
 
 // get row count
 if($num > 0){
