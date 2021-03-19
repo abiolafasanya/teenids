@@ -28,7 +28,7 @@ $post_arr = array();
 $post_arr['data'] = array();
 
 while($row = $result->fetch_array()){
-    estract($row);
+    extract($row);
 
     $post_item = array(
         'id' => $id,
