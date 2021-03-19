@@ -49,7 +49,7 @@ while($row = $result->fetch_array()){
 else{
     // no posts
     echo json_encode(
-        array('message' => 'No post found')
+        array('message' => 'No posts found')
     );
 }
 

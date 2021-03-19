@@ -3,7 +3,7 @@
     class Post{
         // Database
         private $conn;
-        private $table;
+        private $table = 'posts';
 
         // Post Properties
         public $id;
@@ -25,9 +25,9 @@
                         c.name AS category_name,
                         p.id,
                         p.category_id,
-                        p.author,
-                        p.body,
                         p.title,
+                        p.body,
+                        p.author,
                         p.created_at
                      FROM 
                      '.$this->table.' p
