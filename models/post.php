@@ -43,11 +43,6 @@ class Post{
             $stmt->execute();
 
 
-            $stmt->store_result();
-           
-            // $stmt = $this->conn->query($sql);
-            // // $stmt->execute();
-
             return $stmt;
         }
     }
