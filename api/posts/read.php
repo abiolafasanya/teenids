@@ -1,56 +1,52 @@
-<?php   
+<?php 
+  // Headers
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
 
-header('Access-Control-Allow-Origiin: *');
+  include_once '../../config/db.php';
+  include_once '../../models/Post.php';
 
-header("Content-type: application/json");
+  // Instantiate DB & connect
+  $database = new Database();
+  $db = $database->connect();
 
-include('../../config/db.php');
-include('../../models/post.php');
+  // Instantiate blog post object
+  $post = new Post($db);
 
+  // Blog post query
+  $result = $post->read();
+  // Get row count
+  $num = $result->rowCount();
 
-$database =  new Database();
-$db = $database->connect();
+  // Check if any posts
+  if($num > 0) {
+    // Post array
+    $posts_arr = array();
+    // $posts_arr['data'] = array();
 
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
 
-$post = new Post($db);
-
-
-// blog post query
-$result = $post->read();
-
-$num = $result->num_rows;
-
-// get row count
-if($num > 0){
-//post array
-
-    $post_arr = array();
-    $post_arr['data'] = array();
-
-    while($row = $result->fetch_array){
-        extract($row);
-
-    $post_item = array(
+      $post_item = array(
         'id' => $id,
         'title' => $title,
         'body' => html_entity_decode($body),
         'author' => $author,
-        'cartegory_id' => $category_id,
+        'category_id' => $category_id,
         'category_name' => $category_name
-    );
+      );
 
-    // push to data
-    array_push($post_aarr['data'], $post_item);
-}
+      // Push to "data"
+      array_push($posts_arr, $post_item);
+      // array_push($posts_arr['data'], $post_item);
+    }
 
-// turn into json & output
-    echo json_encode($post_arr);
-}
-else{
-    // no posts
+    // Turn to JSON & output
+    echo json_encode($posts_arr);
+
+  } else {
+    // No Posts
     echo json_encode(
-        array('message' => 'No posts found')
+      array('message' => 'No Posts Found')
     );
-}
-
-?>
+  }

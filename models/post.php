@@ -41,6 +41,8 @@ class Post{
             // prepare statement
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
+
+
             $stmt->store_result();
            
             // $stmt = $this->conn->query($sql);
